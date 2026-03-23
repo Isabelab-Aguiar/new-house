@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --nude-50: #fdfaf6;
+  --nude-100: #faf7f2;
+  --nude-200: #f5efe6;
+  --nude-300: #ede3d4;
+  --brown-300: #d4a574;
+  --brown-400: #c4956a;
+  --brown-500: #a67c52;
+  --brown-600: #8b5e3c;
+  --brown-700: #6b4423;
+  --brown-800: #4a2e15;
+  --brown-900: #2c1a0e;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--nude-100);
+  color: var(--brown-900);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--nude-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brown-400);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(212, 165, 116, 0.3);
+  color: var(--brown-900);
+}
+
+/* Embla Carousel */
+.embla {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.embla__container {
+  display: flex;
+  height: 100%;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  position: relative;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(253, 250, 246, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(212, 165, 116, 0.18);
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

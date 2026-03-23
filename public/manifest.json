@@ -1,0 +1,38 @@
+{
+  "name": "Chá de Casa Nova – Isabella & Rafael",
+  "short_name": "Chá de Casa Nova",
+  "description": "Celebre conosco a chegada ao nosso novo lar.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#8B5E3C",
+  "orientation": "portrait-primary",
+  "categories": ["lifestyle", "social"],
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Presentes",
+      "url": "/presentes",
+      "description": "Ver lista de presentes"
+    },
+    {
+      "name": "Confirmar Presença",
+      "url": "/confirmacao",
+      "description": "Confirmar presença no evento"
+    }
+  ]
+}
