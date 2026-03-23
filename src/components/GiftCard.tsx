@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ShoppingCart, Loader2 } from "lucide-react";
 import type { GiftItem } from "@/lib/data";
 import PaymentModal from "./PaymentModal";
 
@@ -48,7 +47,6 @@ export default function GiftCard({ gift, onReserved }: GiftCardProps) {
         {gift.reserved && (
           <div className="absolute top-3 right-3 z-10">
             <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#2C1A0E] text-white text-xs font-medium">
-              <Check size={10} />
               Reservado
             </div>
           </div>
@@ -116,7 +114,6 @@ export default function GiftCard({ gift, onReserved }: GiftCardProps) {
                   boxShadow: "0 4px 16px rgba(107,68,35,0.3)",
                 }}
               >
-                <ShoppingCart size={14} />
                 Presentear
               </button>
             ) : (
@@ -124,7 +121,6 @@ export default function GiftCard({ gift, onReserved }: GiftCardProps) {
                 className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-medium"
                 style={{ background: "#F5EFE6", color: "#8B5E3C" }}
               >
-                <Check size={14} />
                 Reservado
               </div>
             )}

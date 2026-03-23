@@ -1,29 +1,24 @@
 import { EVENT_INFO } from "@/lib/data";
-import { MapPin, Clock, Calendar, Shirt } from "lucide-react";
 import Link from "next/link";
 
 const infoCards = [
   {
-    icon: Calendar,
     label: "Data",
     value: EVENT_INFO.date,
     emoji: "📅",
   },
   {
-    icon: Clock,
     label: "Horário",
     value: `A partir das ${EVENT_INFO.time}`,
     emoji: "🕓",
   },
   {
-    icon: MapPin,
     label: "Local",
     value: `${EVENT_INFO.address}`,
     sub: EVENT_INFO.neighborhood,
     emoji: "📍",
   },
   {
-    icon: Shirt,
     label: "Dress Code",
     value: EVENT_INFO.dresscode,
     emoji: "✨",

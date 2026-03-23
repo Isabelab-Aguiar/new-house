@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import GiftCard from "@/components/GiftCard";
 import { GIFT_LIST, CATEGORIES } from "@/lib/data";
-import { Gift, Search } from "lucide-react";
 
 export default function PresentesPage() {
   const { status } = useSession();
@@ -44,7 +43,6 @@ export default function PresentesPage() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
             style={{ background: "#EDE3D4", border: "1px solid #D4C4B0" }}>
-            <Gift size={12} className="text-[#8B5E3C]" />
             <span className="text-xs text-[#8B5E3C] font-medium tracking-wide uppercase">Lista de Presentes</span>
           </div>
           <h1
@@ -59,13 +57,12 @@ export default function PresentesPage() {
           </p>
 
           <div className="relative max-w-sm mx-auto">
-            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#C4956A]" />
             <input
               type="text"
               placeholder="Buscar presente..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-full text-sm outline-none transition-all"
+              className="w-full px-5 py-3 rounded-full text-sm outline-none transition-all"
               style={{
                 background: "white",
                 border: "1.5px solid #EDE3D4",

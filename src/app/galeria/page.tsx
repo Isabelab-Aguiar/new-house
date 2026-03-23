@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { COUPLE_PHOTOS } from "@/lib/data";
-import { X, ZoomIn } from "lucide-react";
 
 const GALLERY_PHOTOS = [
   ...COUPLE_PHOTOS,
@@ -104,9 +103,9 @@ export default function GaleriaPage() {
                   alt={photo.alt}
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center"
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center text-white text-2xl"
                   style={{ background: "rgba(44,26,14,0.4)" }}>
-                  <ZoomIn size={24} className="text-white" />
+                  +
                 </div>
                 <div
                   className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
@@ -127,10 +126,10 @@ export default function GaleriaPage() {
           onClick={() => setLightbox(null)}
         >
           <button
-            className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+            className="absolute top-4 right-4 w-10 h-10 rounded-full flex items-center justify-center text-white hover:bg-white/10 transition-colors text-2xl leading-none"
             onClick={() => setLightbox(null)}
           >
-            <X size={20} />
+            ×
           </button>
           <div
             className="relative max-w-3xl w-full"

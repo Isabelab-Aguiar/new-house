@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Download, X } from "lucide-react";
 
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -46,10 +45,10 @@ export default function PWAInstall() {
       }}
     >
       <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+        className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-white text-lg leading-none"
         style={{ background: "linear-gradient(135deg, #8B5E3C, #C4956A)" }}
       >
-        <Download size={16} className="text-white" />
+        ↓
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-[#2C1A0E] text-sm font-semibold leading-none mb-0.5">
@@ -68,7 +67,7 @@ export default function PWAInstall() {
         onClick={() => setVisible(false)}
         className="w-7 h-7 flex items-center justify-center rounded-full text-[#A67C52] hover:bg-[#F5EFE6] transition-colors flex-shrink-0"
       >
-        <X size={14} />
+        <span className="text-base leading-none">×</span>
       </button>
     </div>
   );

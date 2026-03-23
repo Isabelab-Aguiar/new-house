@@ -1,7 +1,5 @@
 "use client";
 
-import { Loader2 } from "lucide-react";
-
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "ghost" | "outline";
   size?: "sm" | "md" | "lg";
@@ -53,7 +51,7 @@ export default function Button({
       className={`inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 ${sizes[size]} ${className}`}
       style={variants[variant]}
     >
-      {loading ? <Loader2 size={16} className="animate-spin" /> : icon}
+      {loading ? <span className="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" /> : icon}
       {children}
     </button>
   );

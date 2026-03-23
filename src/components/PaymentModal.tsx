@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import { X, CreditCard, Smartphone, Copy, Check, Loader2, AlertCircle } from "lucide-react";
 import type { GiftItem } from "@/lib/data";
 
 interface Props {
@@ -129,7 +128,7 @@ export default function PaymentModal({ gift, isOpen, onClose, onSuccess }: Props
               onClick={handleClose}
               className="w-9 h-9 flex items-center justify-center rounded-full bg-[#EDE3D4] text-[#8B5E3C] hover:bg-[#D4C4B0] transition-colors"
             >
-              <X size={16} />
+              <span className="text-base leading-none">×</span>
             </button>
           </div>
         </div>
@@ -138,7 +137,6 @@ export default function PaymentModal({ gift, isOpen, onClose, onSuccess }: Props
           {/* Error */}
           {error && (
             <div className="flex items-center gap-2 p-3 rounded-xl bg-red-50 border border-red-100 text-red-700 text-sm mb-4">
-              <AlertCircle size={16} />
               {error}
             </div>
           )}
@@ -159,18 +157,18 @@ export default function PaymentModal({ gift, isOpen, onClose, onSuccess }: Props
                   }`}
                 >
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ background: method === "stripe" ? "linear-gradient(135deg,#8B5E3C,#C4956A)" : "#F5EFE6" }}
+                    className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-medium"
+                    style={{ background: method === "stripe" ? "linear-gradient(135deg,#8B5E3C,#C4956A)" : "#F5EFE6", color: method === "stripe" ? "white" : "#8B5E3C" }}
                   >
-                    <CreditCard size={18} className={method === "stripe" ? "text-white" : "text-[#8B5E3C]"} />
+                    CC
                   </div>
                   <div className="text-left flex-1">
                     <p className="font-semibold text-[#2C1A0E] text-sm">Cartão de Crédito</p>
                     <p className="text-xs text-[#A67C52]">Via Stripe · Parcelamento disponível</p>
                   </div>
                   {method === "stripe" && (
-                    <div className="w-5 h-5 rounded-full bg-[#8B5E3C] flex items-center justify-center">
-                      <Check size={12} className="text-white" />
+                    <div className="w-5 h-5 rounded-full bg-[#8B5E3C] flex items-center justify-center text-white text-xs leading-none">
+                      ✓
                     </div>
                   )}
                 </button>
@@ -185,18 +183,18 @@ export default function PaymentModal({ gift, isOpen, onClose, onSuccess }: Props
                   }`}
                 >
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ background: method === "pix" ? "linear-gradient(135deg,#8B5E3C,#C4956A)" : "#F5EFE6" }}
+                    className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-medium"
+                    style={{ background: method === "pix" ? "linear-gradient(135deg,#8B5E3C,#C4956A)" : "#F5EFE6", color: method === "pix" ? "white" : "#8B5E3C" }}
                   >
-                    <Smartphone size={18} className={method === "pix" ? "text-white" : "text-[#8B5E3C]"} />
+                    Pix
                   </div>
                   <div className="text-left flex-1">
                     <p className="font-semibold text-[#2C1A0E] text-sm">Pix</p>
                     <p className="text-xs text-[#A67C52]">Via AbacatePay · Pagamento instantâneo</p>
                   </div>
                   {method === "pix" && (
-                    <div className="w-5 h-5 rounded-full bg-[#8B5E3C] flex items-center justify-center">
-                      <Check size={12} className="text-white" />
+                    <div className="w-5 h-5 rounded-full bg-[#8B5E3C] flex items-center justify-center text-white text-xs leading-none">
+                      ✓
                     </div>
                   )}
                 </button>
@@ -212,12 +210,9 @@ export default function PaymentModal({ gift, isOpen, onClose, onSuccess }: Props
                 }}
               >
                 {loading ? (
-                  <Loader2 size={18} className="animate-spin" />
+                  <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 ) : (
-                  <>
-                    {method === "pix" ? <Smartphone size={16} /> : <CreditCard size={16} />}
-                    {method === "pix" ? "Gerar QR Code Pix" : "Pagar com Cartão"}
-                  </>
+                  method === "pix" ? "Gerar QR Code Pix" : "Pagar com Cartão"
                 )}
               </button>
             </>
@@ -238,8 +233,8 @@ export default function PaymentModal({ gift, isOpen, onClose, onSuccess }: Props
                   {pixData.pixQrCode ? (
                     <img src={pixData.pixQrCode} alt="QR Code Pix" className="w-44 h-44" />
                   ) : (
-                    <div className="w-44 h-44 flex items-center justify-center bg-[#F5EFE6] rounded-xl">
-                      <Smartphone size={48} className="text-[#C4956A]" />
+                    <div className="w-44 h-44 flex items-center justify-center bg-[#F5EFE6] rounded-xl text-[#C4956A] text-sm font-medium">
+                      QR Code
                     </div>
                   )}
                 </div>
@@ -257,7 +252,6 @@ export default function PaymentModal({ gift, isOpen, onClose, onSuccess }: Props
                     className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium transition-all"
                     style={{ background: copied ? "#8B5E3C" : "#C4956A", color: "white" }}
                   >
-                    {copied ? <Check size={12} /> : <Copy size={12} />}
                     {copied ? "Copiado!" : "Copiar"}
                   </button>
                 </div>

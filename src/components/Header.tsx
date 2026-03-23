@@ -4,13 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
-import { Menu, X, Home, Gift, CheckSquare, Image, LogOut } from "lucide-react";
-
 const navLinks = [
-  { href: "/", label: "Início", icon: Home },
-  { href: "/presentes", label: "Presentes", icon: Gift },
-  { href: "/confirmacao", label: "Confirmar", icon: CheckSquare },
-  { href: "/galeria", label: "Galeria", icon: Image },
+  { href: "/", label: "Início" },
+  { href: "/presentes", label: "Presentes" },
+  { href: "/confirmacao", label: "Confirmar" },
+  { href: "/galeria", label: "Galeria" },
 ];
 
 export default function Header() {
@@ -111,7 +109,6 @@ export default function Header() {
                     onClick={handleLogout}
                     className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-[#8B5E3C] hover:text-[#6B4423] hover:bg-[#F5EFE6] rounded-full transition-all border border-transparent hover:border-[#EDE3D4]"
                   >
-                    <LogOut size={14} />
                     Sair
                   </button>
                 </div>
@@ -123,7 +120,7 @@ export default function Header() {
                 className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-[#F5EFE6] text-[#6B4423] hover:bg-[#EDE3D4] transition-colors"
                 aria-label="Menu"
               >
-                {menuOpen ? <X size={18} /> : <Menu size={18} />}
+                {menuOpen ? <span className="text-lg leading-none">×</span> : <span className="text-lg leading-none">≡</span>}
               </button>
             </div>
           </div>
@@ -169,7 +166,7 @@ export default function Header() {
             )}
 
             <nav className="flex flex-col gap-2 flex-1">
-              {navLinks.map(({ href, label, icon: Icon }) => {
+              {navLinks.map(({ href, label }) => {
                 const active = pathname === href;
                 return (
                   <Link
@@ -182,7 +179,6 @@ export default function Header() {
                         : "text-[#5C3D2E] hover:bg-[#F5EFE6]"
                     }`}
                   >
-                    <Icon size={18} />
                     {label}
                   </Link>
                 );
@@ -194,7 +190,6 @@ export default function Header() {
                 onClick={handleLogout}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-[#8B5E3C] hover:bg-[#F5EFE6] transition-all mt-auto"
               >
-                <LogOut size={16} />
                 Sair da conta
               </button>
             )}

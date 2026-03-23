@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { COUPLE_PHOTOS, EVENT_INFO } from "@/lib/data";
 import Link from "next/link";
 
@@ -55,7 +54,7 @@ export default function Hero() {
         aria-label="Anterior"
         style={{ background: "rgba(253,250,246,0.2)", backdropFilter: "blur(12px)", border: "1px solid rgba(253,250,246,0.3)", color: "white" }}
       >
-        <ChevronLeft size={20} />
+        <span className="text-xl leading-none">‹</span>
       </button>
       <button
         onClick={scrollNext}
@@ -63,7 +62,7 @@ export default function Hero() {
         aria-label="Próximo"
         style={{ background: "rgba(253,250,246,0.2)", backdropFilter: "blur(12px)", border: "1px solid rgba(253,250,246,0.3)", color: "white" }}
       >
-        <ChevronRight size={20} />
+        <span className="text-xl leading-none">›</span>
       </button>
 
       {/* Dots */}

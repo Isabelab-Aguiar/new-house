@@ -3,7 +3,6 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
-import { CheckCircle, Gift, Home } from "lucide-react";
 
 function ObrigadoContent() {
   const params = useSearchParams();
@@ -27,8 +26,8 @@ function ObrigadoContent() {
           className="px-8 pt-10 pb-8"
           style={{ background: "linear-gradient(135deg, #6B4423, #A67C52)" }}
         >
-          <div className="flex justify-center mb-4">
-            <CheckCircle size={52} className="text-white" strokeWidth={1.5} />
+          <div className="flex justify-center mb-4 text-white text-5xl leading-none">
+            ✓
           </div>
           <h1
             className="text-3xl text-white font-light"
@@ -46,10 +45,10 @@ function ObrigadoContent() {
           >
             <div className="flex items-center gap-3">
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-lg"
                 style={{ background: "#F5EFE6" }}
               >
-                <Gift size={18} className="text-[#8B5E3C]" />
+                🎁
               </div>
               <div className="text-left">
                 <p className="text-xs text-[#A67C52] mb-0.5">Presente escolhido</p>
@@ -69,7 +68,6 @@ function ObrigadoContent() {
               className="flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-semibold text-white transition-all hover:scale-[1.02]"
               style={{ background: "linear-gradient(135deg, #6B4423, #A67C52)" }}
             >
-              <Gift size={16} />
               Ver mais presentes
             </Link>
             <Link
@@ -77,7 +75,6 @@ function ObrigadoContent() {
               className="flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-medium text-[#8B5E3C] transition-all hover:bg-[#F5EFE6]"
               style={{ border: "1px solid #EDE3D4" }}
             >
-              <Home size={16} />
               Voltar ao início
             </Link>
           </div>

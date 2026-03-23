@@ -5,7 +5,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import { EVENT_INFO, TIMELINE } from "@/lib/data";
-import { Check, MapPin, Clock, Calendar, Shirt, Users, ChevronDown } from "lucide-react";
 
 type RSVPStatus = "idle" | "submitting" | "confirmed" | "declined";
 
@@ -43,7 +42,6 @@ export default function ConfirmacaoPage() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-4"
             style={{ background: "#EDE3D4", border: "1px solid #D4C4B0" }}>
-            <Users size={12} className="text-[#8B5E3C]" />
             <span className="text-xs text-[#8B5E3C] font-medium tracking-wide uppercase">Confirmação de Presença</span>
           </div>
           <h1
@@ -132,7 +130,7 @@ function RSVPForm({
               <option key={n} value={n}>{n} {n === 1 ? "pessoa" : "pessoas"}</option>
             ))}
           </select>
-          <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-[#A67C52] pointer-events-none" />
+          <span className="absolute right-3 top-1/2 -translate-y-1/2 text-[#A67C52] pointer-events-none text-sm">↓</span>
         </div>
       </label>
 
@@ -184,8 +182,8 @@ function ConfirmedCard({ name, guests }: { name: string; guests: number }) {
         boxShadow: "0 16px 48px rgba(107,68,35,0.3)",
       }}
     >
-      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-        <Check size={28} className="text-white" />
+      <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4 text-white text-3xl leading-none">
+        ✓
       </div>
       <h2
         className="text-3xl text-white font-light mb-2"
@@ -230,10 +228,10 @@ function DeclinedCard({ name }: { name: string }) {
 
 function EventInfoCard() {
   const items = [
-    { icon: Calendar, label: EVENT_INFO.date },
-    { icon: Clock, label: `${EVENT_INFO.time}` },
-    { icon: MapPin, label: `${EVENT_INFO.address}, ${EVENT_INFO.neighborhood}` },
-    { icon: Shirt, label: `Dress code: ${EVENT_INFO.dresscode}` },
+    { emoji: "📅", label: EVENT_INFO.date },
+    { emoji: "🕓", label: `${EVENT_INFO.time}` },
+    { emoji: "📍", label: `${EVENT_INFO.address}, ${EVENT_INFO.neighborhood}` },
+    { emoji: "✨", label: `Dress code: ${EVENT_INFO.dresscode}` },
   ];
 
   return (
@@ -243,13 +241,13 @@ function EventInfoCard() {
     >
       <p className="text-xs text-[#A67C52] tracking-[2px] uppercase font-medium mb-4">Informações</p>
       <div className="flex flex-col gap-3">
-        {items.map(({ icon: Icon, label }) => (
+        {items.map(({ emoji, label }) => (
           <div key={label} className="flex items-start gap-3">
             <div
-              className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+              className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 text-sm"
               style={{ background: "#F5EFE6" }}
             >
-              <Icon size={14} className="text-[#8B5E3C]" />
+              {emoji}
             </div>
             <p className="text-[#5C3D2E] text-sm leading-snug pt-0.5">{label}</p>
           </div>

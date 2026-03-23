@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
 
 export default function LoginPage() {
   const { data: session, status } = useSession();
@@ -24,7 +23,7 @@ export default function LoginPage() {
   if (status === "loading" || status === "authenticated") {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: "var(--nude-100)" }}>
-        <Loader2 className="animate-spin text-[#A67C52]" size={32} />
+        <span className="inline-block w-8 h-8 border-2 border-[#A67C52] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -100,7 +99,7 @@ export default function LoginPage() {
               }}
             >
               {loading ? (
-                <Loader2 size={18} className="animate-spin" />
+                <span className="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
               ) : (
                 <GoogleIcon />
               )}
